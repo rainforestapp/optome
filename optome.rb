@@ -1,28 +1,31 @@
 require 'securerandom'
-require 'uuid'
 
-class Capture
-  attr_reader :datetime, :name
-  def initialize h
-    @datetime = h[:time]
-    @name = h[:name]
-    fname = "#{h[:time].to_s.delete(' ')}#{h[:name]}.png"
-    `screencapture -x #{fname}`
+
+class ScreenCapture
+  attr_reader :date_created, :file_name
+
+  def initialize args
+    @date_created = args[:time]
+    @file_name = "#{args[:time].to_s.delete(' ')}#{args[:name]}.png"
+    `screencapture -x #{@file_name}`
+  end
+
+end
+
+
+class TextRecognizer
+  def self.execute file_name
+    puts `tesseract #{file_name} #{file_name}`
   end
 end
 
-# TODO screenshot
-# TODO OCR
-# TODO text
-# TODO timestamp
 
 def main
   while true do
-    c = Capture.new(name: SecureRandom.hex, time: Time.now)
-    puts c.inspect
-    # `tesseract #{fname} #{fname}.txt`
-    sleep(1)
+    cap = ScreenCapture.new(name: SecureRandom.hex, time: Time.now)
+    TextRecognizer.execute cap.file_name
   end
 end
+
 
 main()
