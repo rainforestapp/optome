@@ -6,7 +6,7 @@ Optome: Time Machine Backup for anything you've ever viewed on screen
 2. the screen grabs shipped off to a private remote server where they are OCR'd and indexed
 3. use a web interface to search for anything you've ever read on your screen
 
-Tools: 
+#### Tech 
 
 - tesseract for OCR
 - ElasticSearch for full-text search
