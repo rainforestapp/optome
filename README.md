@@ -1,3 +1,18 @@
+#### about
+
+Optome: Time Machine Backup for anything you've ever viewed on screen
+
+1. a background app takes screengrabs at a set interval
+2. the screen grabs shipped off to a private remote server where they are OCR'd and indexed
+3. use a web interface to search for anything you've ever read on your screen
+
+Tools: 
+
+- tesseract for OCR
+- ElasticSearch for full-text search
+- sidekiq/resque for farming out recognition tasks (they take a couple seconds per image)
+- NLP libraries for cleaning up and correcting the raw data (tiny text winds up garbled, large text is recognized accurately)
+
 requires tesseract, screencapture
 
 tested on os x mavericks
