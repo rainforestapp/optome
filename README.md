@@ -52,3 +52,27 @@ News Feed Requests Messages Notifications More
 ```
 
 ![Dropbox Example](/sample/drop.png "Sample")
+
+
+#### plan
+
+Upload
+======
+0. forever, perform screencapture to a temp dir
+1. send post request to rails server
+2. rails controller sends message to model
+3. model handles the update by kicking off an async job
+4. async job takes photo as input,
+    executes text recognition performing intermediate cleanup,
+    creates photo thumbnails,
+    finally: persists the data
+
+Search
+======
+1. enter query in form
+2. query kicks off async GET request to SearchController
+3. SearchController performs full-text search by sending a message to a model that wraps ElasticSearch
+4. Model queries ES, and uses the ES result to fetch photo data from RDBMS
+5. Model returns collection data to controller (item, thumbnail url, jumbo url)
+6. ItemExhibit corrals the model data into presentable format, returned to client as JSON
+7. Client examines the json to display the result
