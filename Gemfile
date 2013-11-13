@@ -5,6 +5,7 @@ gem 'rails', '4.0.0'
 
 # Sidekiq
 gem 'sidekiq'
+gem 'sinatra', '>= 1.3.0', :require => nil # For admin interface
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
