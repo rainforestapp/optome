@@ -9,8 +9,7 @@ end
 class SnapWorker
   include Sidekiq::Worker
 
-  def perform
-    # TODO recog
+  def perform file_name
     # TODO save
     # TODO thumbs
   end
@@ -22,7 +21,7 @@ class ScreenGrabProcessor
   end
 
   def enqueue screen_grab
-    SnapWorker.perform_async(file_name)
+    SnapWorker.perform_async(screen_grab[:file_name])
     true 
   end
 end
