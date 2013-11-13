@@ -44,6 +44,8 @@ gem 'unicorn'
 
 gem 'rspec-rails'
 
+gem 'haml'
+
 gem 'httparty'
 
 gem 'haml-rails'

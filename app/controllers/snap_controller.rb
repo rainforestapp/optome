@@ -15,10 +15,19 @@ class SnapController < ApplicationController
     end
   end
 
+  def search 
+    @snaps = Snap.find_with_text query_params
+    render json: @snaps
+  end
+
   private
 
   def init_processor
     @processor ||= ScreenGrabProcessor.new
+  end
+
+  def query_params
+    params.require(:q)
   end
 
   def snap_params

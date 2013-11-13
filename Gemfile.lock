@@ -71,7 +71,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.8.2)
     multi_xml (0.5.5)
-    pg (0.16.0)
+    pg (0.17.0)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-protection (1.5.1)
@@ -162,6 +162,7 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   bootstrap-sass (~> 3.0.2.0)
   coffee-rails (~> 4.0.0)
+  haml
   haml-rails
   httparty
   jbuilder (~> 1.2)
