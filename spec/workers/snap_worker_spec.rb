@@ -1,10 +1,9 @@
 require 'spec_helper'
 
-PHOTO_FILE = File.join(Rails.root, "/spec/models/drop.png")
+PHOTO_FILE = File.join(Rails.root, "/spec/resources/drop.png")
 
 describe SnapWorker do
   describe 'perform' do
-
     it "persists a snap" do
       w = SnapWorker.new
       expect do
