@@ -41,7 +41,7 @@ describe SnapController do
 
       expect do
         post :upload, valid_params
-      end.to change(q, :size).by(1)
+      end.to change(q, :size).by(2)
     end
 
     it "should return 400 if no photo provided" do
