@@ -23,6 +23,9 @@ describe SnapController do
       end.to change(q, :size).by(1)
     end
 
-    it "should return 400 if no photo provided"
+    it "should return 400 if no photo provided" do
+      post :upload, {}
+      response.status.should == 400
+    end
   end
 end

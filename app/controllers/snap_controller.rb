@@ -4,10 +4,10 @@ class SnapController < ApplicationController
   respond_to :json
 
   def upload
-    if @processor.enqueue params[:snap]
-      render json: { status: 200 }, status: :ok
+    if @processor.enqueue snap_params
+      render json: {}, status: :ok
     else
-      render json: { status: 400 }, status: :bad_request
+      render json: {}, status: :bad_request
     end
   end
 
@@ -15,5 +15,13 @@ class SnapController < ApplicationController
 
   def init_processor
     @processor ||= ScreenGrabProcessor.new
+  end
+
+  def snap_params
+    params.require(:snap).permit(:file_name)
+  end
+
+  rescue_from(ActionController::ParameterMissing) do
+    render json: {}, status: :bad_request
   end
 end
