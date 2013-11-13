@@ -1,6 +1,5 @@
 require 'securerandom'
 
-
 class ScreenCapture
   attr_reader :date_created, :file_name
 
@@ -9,7 +8,6 @@ class ScreenCapture
     @file_name = "#{args[:time].to_s.delete(' ')}#{args[:name]}.png"
     `screencapture -x #{@file_name}`
   end
-
 end
 
 

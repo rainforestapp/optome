@@ -7,6 +7,8 @@ gem 'rails', '4.0.0'
 gem 'sidekiq'
 gem 'sinatra', '>= 1.3.0', :require => nil # For admin interface
 
+gem 'thumbnail'
+
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 
