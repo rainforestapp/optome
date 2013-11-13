@@ -1,5 +1,11 @@
 class ScreenGrabProcessor
-  def enqueue screen_grab
-    true
+  def initialize
+    @queue = Sidekiq::Queue.new
+  end
+
+  def enqueue snap
+    return false unless snap[:file_name].present?
+    SnapWorker.perform_async(snap[:file_name])
+    true 
   end
 end
