@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+directory = File.join(Rails.root, "tmp/output") 
+
+while true 
+  FileUtils.mkdir_p(directory)
+  file = File.join(directory, "#{Time.now.to_i}.png")
+  `screencapture #{file}`
+
+  url = "http://recall.dev/snap"
+
+  HTTParty.post url, body: {snap: {file_name: file}}
+end
+
