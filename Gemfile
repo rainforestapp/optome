@@ -49,3 +49,9 @@ gem 'rspec-rails'
 gem 'haml'
 
 gem 'httparty'
+
+gem 'haml-rails'
+
+# Add Bootstrap-Sass
+# (https://github.com/thomas-mcdonald/bootstrap-sass)
+gem 'bootstrap-sass', '~> 3.0.2.0'
