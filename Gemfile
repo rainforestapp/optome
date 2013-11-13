@@ -42,3 +42,4 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # Use unicorn as the app server
 gem 'unicorn'
 
+gem 'rspec-rails'
