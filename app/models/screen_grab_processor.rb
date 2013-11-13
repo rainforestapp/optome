@@ -2,7 +2,8 @@ require 'sidekiq'
 
 class TextRecognizer
   def self.execute file_name
-    puts `tesseract #{file_name} #{file_name}`
+    `tesseract #{file_name} #{file_name}`
+    "#{file_name}.txt"
   end
 end
 
@@ -10,6 +11,7 @@ class SnapWorker
   include Sidekiq::Worker
 
   def perform file_name
+    text_fname = TextRecognizer.execute file_name
     # TODO save
     # TODO thumbs
   end
