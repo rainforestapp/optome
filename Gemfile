@@ -43,3 +43,5 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'unicorn'
 
 gem 'rspec-rails'
+
+gem 'haml'
