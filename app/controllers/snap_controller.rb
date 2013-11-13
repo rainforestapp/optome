@@ -1,4 +1,4 @@
-class ScreenGrabController < ApplicationController
+class SnapController < ApplicationController
   respond_to :json
 
   def upload
