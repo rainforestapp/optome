@@ -3,6 +3,10 @@ class SnapController < ApplicationController
 
   respond_to :json
 
+  def index
+    render template: "snap/index"
+  end
+
   def upload
     if @processor.enqueue snap_params
       render json: {}, status: :ok
